@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.stopwatch-card {
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.stopwatch-card:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* Time Display */
+.time-display {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-start {
+    background: #28a745;
+    color: white;
+}
+
+.btn-start:hover {
+    background: #218838;
+}
+
+.btn-pause {
+    background: #ffc107;
+    color: #333;
+}
+
+.btn-pause:hover {
+    background: #e0a800;
+}
+
+.btn-reset {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-reset:hover {
+    background: #c82333;
+}
+
+.btn-lap {
+    background: #17a2b8;
+    color: white;
+}
+
+.btn-lap:hover {
+    background: #138496;
+}
+
+/* Lap Section */
+.lap-section {
+    margin-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.lap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.lap-header h3 {
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.btn-clear {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-clear:hover {
+    background: #5a6268;
+    transform: scale(1.05);
+}
+
+.lap-list-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+
+.lap-list {
+    list-style: none;
+    padding: 10px;
+}
+
+.lap-list li {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.lap-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.lap-list .lap-number {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.lap-list .lap-time {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.lap-list .lap-diff {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.empty-lap {
+    text-align: center;
+    color: #999;
+    justify-content: center !important;
+}
+
+/* Scrollbar Styling */
+.lap-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lap-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.lap-list-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.lap-list-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .stopwatch-card {
+        padding: 20px;
+    }
+    
+    .time-display {
+        font-size: 2rem;
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .buttons {
+        gap: 10px;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Animation for new lap */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.lap-list li {
+    animation: slideIn 0.3s ease;
+}
